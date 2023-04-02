@@ -3,6 +3,7 @@
     [mecca-blog.middleware :as middleware]
     [mecca-blog.layout :refer [error-page]]
     [mecca-blog.routes.home :refer [home-routes]]
+    [mecca-blog.routes.services :refer [service-routes]]
     [reitit.ring :as ring]
     [ring.middleware.content-type :refer [wrap-content-type]]
     [ring.middleware.webjars :refer [wrap-webjars]]
@@ -22,7 +23,8 @@
   :start
   (ring/ring-handler
     (ring/router
-      [(home-routes)])
+      [(home-routes)
+       (service-routes)])    
     (ring/routes
       (ring/create-resource-handler
         {:path "/"})

@@ -5,6 +5,7 @@
 
   :dependencies [[ch.qos.logback/logback-classic "1.4.4"]
                  [clojure.java-time "1.1.0"]
+                 [cljs-ajax "0.8.1"]
                  [org.clojure/clojurescript "1.10.764" :scope "provided"]
                  [com.h2database/h2 "1.4.200"]
                  [conman "0.9.5"]
@@ -29,6 +30,7 @@
                  [org.webjars.npm/material-icons "1.10.8"]
                  [org.webjars/webjars-locator "0.45"]
                  [reagent "1.0.0"]
+                 [re-frame "1.1.2"]
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.9.6"]
                  [ring/ring-defaults "0.3.4"]
@@ -36,7 +38,7 @@
 
   :min-lein-version "2.0.0"
 
-  :source-paths ["src/clj"]
+  :source-paths ["src/clj" "src/cljc"]
   :test-paths ["test/clj"]
   :resource-paths ["resources" "target/cljsbuild"]
   :target-path "target/%s/"
@@ -46,7 +48,7 @@
 
   :cljsbuild
   {:builds
-   {:app {:source-paths ["src/cljs"]
+   {:app {:source-paths ["src/cljs" "src/cljc"]
           :compiler {:output-to "target/cljsbuild/public/js/app.js"
                      :output-dir "target/cljsbuild/public/js/out"
                      :main "mecca-blog.core"
